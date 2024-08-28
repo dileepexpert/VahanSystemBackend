@@ -1,21 +1,26 @@
 const express=require("express");
 const mongoose=require("mongoose");
+const dotenv=require("dotenv");
+const cors=require("cors");
 const userRoute=require("./routes/userRoute")
 const adminRoute=require("./routes/adminRoute")
+
 const app=express();
 
+dotenv.config()
 //middleware
 app.use(express.json())
+app.use(cors());
 
-const Port=5000;
+const Port=process.env.Port||4000;
 
 //mongoDb connection 
 const ab=async()=>{
     try{
 
- mongoose.connect("mongodb+srv://rameshbexpertsolutions:XyJHv1oyCQ1luLOm@cluster0.xltg9.mongodb.net/vahanTrackSystem")
+ mongoose.connect(process.env.MongoURI)
 // res.status().send({message:"mongodb connection successful",connection})
-console.log("connection successful hhh")
+console.log("Mongodb connection successful")
     }catch(error){
         console.log("error:",error)
         // res.status().send({message:"mongodb connection no successful"})
@@ -36,6 +41,14 @@ ab()
 //     console.log("Connection failed:",error)
 // })
 
+// mongoose
+//   .connect("")
+//   .then(() => {
+//     console.log("MongoDb connected Successfully");
+//   })
+//   .catch((error) => {
+//     console.log("Connection is Failed:", error);
+//   });
     
 
 

@@ -1,14 +1,20 @@
-
-const User = require("../../models/authModel")
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
+const User = require("../../models/authModel")
+const { registerValidation } = require("../../validation/authValidation");
+
 
 const register = async (req, res) => {
     try {
         const { name, email, password } = req.body
-        if(!name ||!email ||!password){
-            return res.status(400).send({message:"All filed is required"})
+
+        const { error } = registerValidation.validate({ name, email, password })
+        if (error) {
+            return res.status(400).send({ message: error.message });
         }
+        // if(!name ||!email ||!password){
+        //     return res.status(400).send({message:"All filed is required"})
+        // }
         const existedUser = await User.findOne({ email })
         if (existedUser) {
             return res.status(400).send({ message: "Email Already Exist" })
@@ -24,12 +30,11 @@ const register = async (req, res) => {
 }
 
 
-
-
 const login = async (req, res) => {
     try {
         const { email, password } = req.body
         const existedUser = await User.findOne({ email })
+
         if (!existedUser) {
             return res.status(400).send({ message: "Email not Exist" })
         }
@@ -39,7 +44,8 @@ const login = async (req, res) => {
             return res.status(400).send({ message: "Password not exist" })
         }
 
-        const token = jwt.sign({ email: existedUser.password }, "expert", { expiresIn: "2h" })
+        const token = jwt.sign({ email: existedUser.email }, process.env.secure, { expiresIn: "2h" })
+        res.set('token', ` ${token}`);
         res.status(200).send({ message: "admin logged successfully", token })
 
     } catch (error) {

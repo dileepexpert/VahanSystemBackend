@@ -3,11 +3,19 @@ const User=require("../../models/authModel")
 
 const bcrypt=require("bcrypt")
 const jwt=require("jsonwebtoken")
-
+const { registerValidation } = require("../../validation/authValidation")
+const SECRET_KEY="expert"
 
 const register=async(req,res)=>{
     try {
         const {name,email,password}=req.body
+
+        // validation checking
+        const {error}=registerValidation.validate({name,email,password})
+        if (error) {
+            return res.status(400).send({ message: error.message });
+        }
+
         const existedUser=await User.findOne({email})
         if(existedUser){
             return res.status(400).send({message:"Email Already Exist"}) 
@@ -38,9 +46,8 @@ const login=async(req,res)=>{
             return res.status(400).send({message:"Password not exist"}) 
         }
        
-        const token=jwt.sign({email:existedUser.password},"expert",{expiresIn:"2h"})
-        res.status(200).send({message:"user logged successfully",token})
-
+        const token=jwt.sign({email:existedUser.email},SECRET_KEY,{expiresIn:"2h"})
+        res.status(200).send({message:"user logged successfully",token});
     } catch (error) {
         console.error("error",error)
         res.status(500).send({message:"internal server error",error})

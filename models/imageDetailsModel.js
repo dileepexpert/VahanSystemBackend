@@ -4,30 +4,30 @@ const imageSchema=new mongoose.Schema({
 
     gpsImeiPic:
     {
-        type:{}
+        type:String
     },
 
     vehicleNumberPlate:
     {
-        type:{}
+        type:String
     },
     
     DriverPic:
     {
-        type:{}
+        type:String
     },
     
     sealingImages:
     {
-        type:{}
+        type:String
     },
     
     vehicleImages:
     {
-        type:{}
+        type:String
     },
 },{timestamps:true})
 
 
-const imageDetail=mongoose.model("imageDetails",imageSchema);
+const imageDetail=mongoose.model("imageDetail",imageSchema);
 module.exports= imageDetail;

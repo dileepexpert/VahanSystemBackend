@@ -4,7 +4,7 @@ const paymentSchema=new mongoose.Schema({
     tds:
     {
         type:String,
-        required:true
+        required:true,
     },
 
     advanced :
@@ -65,10 +65,9 @@ const paymentSchema=new mongoose.Schema({
     {
         type:String,
         required:true
-    },
-
+    }
 },{timestamps:true})
 
 
-const paymentFuelDetail=mongoose.model("payment&fuelDetail",paymentSchema);
+const paymentFuelDetail=mongoose.model("payment fuel Detail",paymentSchema);
 module.exports= paymentFuelDetail;
