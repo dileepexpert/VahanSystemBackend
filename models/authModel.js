@@ -20,3 +20,7 @@ const authSchema=new mongoose.Schema(
     },{timestamps:true}
 )
 module.exports=mongoose.model("user",authSchema);
+
+//dileep kumar
+
+console.log("Dileep")

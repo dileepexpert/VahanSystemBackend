@@ -150,3 +150,6 @@ const challanSchema=new mongoose.Schema({
 
 const VahanDetail=mongoose.model("challanDetail",challanSchema);
 module.exports= VahanDetail;
+
+
+console.log("Kumar")
