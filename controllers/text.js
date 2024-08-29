@@ -1,5 +1,0 @@
-const person={
-  name:"hh"
-}
-
-
