@@ -1,0 +1,182 @@
+*{
+   
+    
+}
+/* div ~ p {
+    color: green; 
+} */
+div +p {
+    color: green; 
+}
+
+/* pseuso class */
+
+/* .pse a:hover{
+color:green;
+}
+.pse a:active{
+    color:blue;
+    } */
+
+
+
+
+    /* pseudo element: before,after*/
+
+    /* .example-button::before {
+        content: "🔥 ";
+    }
+    
+    .example-button::after {
+        content: " ⭐";
+    } */
+
+    .pelement::before{
+        content: "❤️";
+    }
+    .pelement::after{
+        content:"💕" ;
+    }
+    .pelement p::selection{
+        color: red;
+        background: yellow;
+    }
+    .pelement p::first-line{
+        color: red;
+        background: yellow;
+    }
+    .pelement p::first-letter{
+        color: green;
+        background: yellow;
+    }
+
+    /* Attrinute Selector */
+
+    .new a[target='_blank']
+    {
+        background-color:yellow
+    }
+    [required]{
+        border: 2px solid red;
+    }
+    [type='text']
+    {
+        background-color: aqua;
+    }
+     [href^="https"]
+    {
+        background: green;
+        color: white;
+    }
+    [src$=".jpg"] {
+        border: 3px solid blue; /* Styles images with source ending in '.jpg' */
+    }
+    [alt*='beautiful']{
+        background-color: aquamarine;
+    }
+
+
+.parent{
+    width:100%;
+    display:flex;
+}
+.child{
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    width: 30%;
+    margin: 10px;
+    font-size:40px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+.child:nth-child(1){
+    background: rgb(233,140,10);
+    background: linear-gradient(21deg, rgba(233,140,10,1) 35%, rgba(232,222,9,0.9977240896358543) 100%);
+}
+.child:nth-child(2){
+    background: rgb(138,233,10);
+    background: linear-gradient(23deg, rgba(138,233,10,1) 17%, rgba(9,232,229,0.9977240896358543) 100%);
+}
+.child:nth-child(3){
+    background: rgb(233,95,10);
+    background: linear-gradient(40deg, rgba(233,95,10,1) 17%, rgba(40,232,9,0.9977240896358543) 83%);
+}
+.child:nth-child(4){
+    background: rgb(10,209,233);
+    background: linear-gradient(225deg, rgba(10,209,233,1) 17%, rgba(232,9,197,0.9977240896358543) 83%);
+}
+
+
+.bag{
+    /* background:rgb(233,140,10); */
+    background: url("https://www.shutterstock.com/image-photo/ai-tech-businessman-show-virtual-600nw-2253228203.jpg")no-repeat left top;
+    /* background-size: cover; */
+    background-position: center;
+    height: 300px;
+    width:300px
+}
+.text{
+    font-size: 50px;
+    font-weight: bold;
+    text-shadow:5px 5px 5px rgba(233,66,10,0.7) ;
+}
+.animat{
+    background:green ;
+    height: 300px;
+    width:300px;
+    border-radius:10px;
+    position: relative;
+    animation: jump 3s ease-in-out infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: left;
+}
+@keyframes jump {
+    0%{
+        transform:translateY(0)
+    }
+    50%{
+        transform: translateY(100px);
+    }
+    100%{
+        transform: translateY(0);
+    }
+
+}
+.zoom{
+    font-size: 200px;
+    float: left;margin-left: 100px;
+    position: relative;
+    animation: zoom 3s ease-in-out infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: left;
+
+}
+@keyframes zoom {
+    0%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.5);
+    }
+    100%{
+        transform: scale(1);
+    }
+
+}
+
+
+
+
+
+
+    
+
