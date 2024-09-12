@@ -31,7 +31,7 @@ const signupDetails = async (req, res) => {
     try {
         const data = req.body;
         const { name, email, password } = data;
-        console.log("hhh",data)
+        //console.log("hhh",data)
 
         // Validate using Joi schema
         const { error } = registerValidation.validate({ name, email, password });
@@ -81,3 +81,9 @@ const loginDetails=async(req,res)=>{
     }
 }
 module.exports={signupDetails,loginDetails}
+
+
+
+
+
+

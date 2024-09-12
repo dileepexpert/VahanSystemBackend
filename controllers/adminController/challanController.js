@@ -1,13 +1,14 @@
 const Challan=require("../../models/challanDetailsModel")
 const create =async(req,res)=>{
-    try {
-        const data=req.body;
-        const saveData=await Challan.create(data);
-        res.status(201).send ({Message:"Data is created sucessfully:",saveData});
+  console.log(req.body)
+    // try {
+    //     const data=req.body;
+    //     const saveData=await Challan.create(data);
+    //     res.status(201).send ({Message:"Data is created sucessfully:",saveData});
         
-    } catch (error) {
-      res.status(500).send ({Message:"Data is not created:",error});
-    }
+    // } catch (error) {
+    //   res.status(500).send ({Message:"Data is not created:",error});
+    // }
 }
 
 
@@ -90,3 +91,8 @@ const searched=async(req,res)=>{
 }
 
 module.exports={create,fetch,update,deleted,searched}
+
+
+
+
+

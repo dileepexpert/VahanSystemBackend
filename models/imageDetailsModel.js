@@ -5,23 +5,29 @@ const images=new mongoose.Schema({
 
 GPSIMEIPIC:{
     type:String
+    
+
 
 },
 
 VEHICLENUMBERPLATE:{
     type:Number
+    
+
 
 },
 DRIVERPIC:{
     type:String
-
+   
 },
 SEALINGIMAGES:{
-type:String
+    type:String
+   
 },
 
 VEHICLEIMAGES:{
-type:String
+    type:String
+    
 }
 },{timestamps:true})
 

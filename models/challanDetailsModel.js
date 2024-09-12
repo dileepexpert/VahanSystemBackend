@@ -2,51 +2,296 @@ const mongoose=require("mongoose");
 
 const CreateChallan=new mongoose.Schema({
 
-TransporterName:{type:String},
-MaterialName:{type:String},
+transporterName:
+{
+    type:String,
+    required:true,
+    trim:true
 
-ReceiverpartyName:{type:String},
+}
+,
 
-Vehiclenumber:{type:Number}, 
+materialName:
+{
+    type:String,
+    required:true,
+    trim:true
 
-GpsIMEINumber:{type:Number},
+},
 
-DriverName:{type:String}, 
+receiverPartyName:
+{
+    type:String,
+    required:true,
+    trim:true
+},
 
-Drivercontactnumber:{type:Number}, 
+vehicleNumber:
+{
+    type:String,
+    required:true,
+     trim:true,
+     unique:true
+},
+gpsImeiNumber:
+{
+    type:Number,
+    required:true,
+    trim:true,
+    unique:true
+},
 
-Loadingsite:{type:String}, 
+driverName:
+{ 
+    type:String,
+    required:true,
+    trim:true
+},
 
-Loadingdateandtime:{type:Number},
+driverContactNumber:
+{
+    type:Number,
+    required:true,
+    trim:true,
+    unique:true
+},
 
-LoaderName:{type:String},
+loadingSite:
+{
+    type:String,
+    required:true,
+    trim:true
+},
 
-ChallanandRoyalityNumber:{type:Number}, 
+loadingDateAndTime:
+{
+    type:String,
+    required:true,
+    trim:true
+},
 
-DONumber:{type:String}, 
+loaderName:
+{
+    type:String,
+    required:true,
+    trim:true
+},
 
-Freight:{type:String},
+challanAndRoyalityNumber:
+{
+    type:Number,
+    required:true,
+    trim:true
+}, 
 
-Qualityofmaterials :{type:String},
+doNumber:
+{
+    type:String,
+    required:true,
+    trim:true
+}
+    ,
 
-TPNumber:{type:Number}, 
+freight: 
+{
+    type:String,
+    required:true,
+    trim:true
+},
 
-Grossweight :{type:String},
+qualityOfMaterials : 
+{
+    type:String,
+    required:true,
+    trim:true
+},
 
-TareWeight:{type:String}, 
+tpNumber:
+{
+    type:Number,
+    required:true,
+    trim:true,
+    unique:true
+
+}, 
+
+grossWeight:
+{
+    type:String,
+    required:true,
+    trim:true
+},
+
+tareWeight: 
+{
+    type:String,
+    required:true,
+    trim:true
+},
 
 
-Loadername:{type:String},
+netMaterialWeight:{
+    type:String,
+    required:true,
+    trim:true   
 
-Loadermobilenumber:{type:Number}, 
+},
 
-Unloadingsite:{type:String}, 
+loaderMobileNumber:
+{
+    type:Number,
+    required:true,
+    trim:true,
+    unique:true
 
-Unloadingdateandtime:{type:Number},
+},
 
-ReceivedWeight:{type:String}, 
+loadingSite:
+{
+    type:String,
+    required:true,
+    trim:true
+},
 
-ShortageOfmaterials:{type:String}
+unloadingDateAndTime:
+{
+    type:String,
+    required:true,
+    trim:true
+},
+
+receivedWeight:
+{
+    type:String,
+    required:true,
+    trim:true
+},
+
+shortageOfMaterials:
+{
+    type:String,
+    required:true,
+    trim:true
+
+},
+
+//PaymentDetails Schema
+
+tds:{
+    type:Number,
+    required:true,
+    trim:true,
+    unique:true
+    },
+    
+    advanced:{
+        type:Number,
+        required:true,
+        trim:true
+    }, 
+    
+    fuel:{
+        type:Number,
+        required:true,
+        trim:true
+    }, 
+    
+    pumpName:{
+        type:String,
+        required:true,
+        trim:true
+    
+    },
+    
+    fuelInLiter:{
+        type:String,
+        trim:true,
+        required:true
+        
+    }, 
+    
+    fuelInPrice:{
+        type:Number,
+        trim:true,
+        required:true
+        
+    } ,
+    
+    fuelStationsChallanNumber:
+    {
+        type:Number,
+        trim:true,
+        required:true
+        
+        
+    },
+    
+    sealingDate:{
+        type:Date,
+        trim:true,
+        required:true
+        
+        
+       
+    },
+    
+    sealingPoint:{
+        type:String,
+        trim:true,
+        required:true
+        
+       
+    },
+    
+    sealingColour:{
+       type:String,
+       trim:true,
+       required:true
+        
+        
+    
+    }, 
+    
+    totalSealQuantity:
+    {
+        type:Number,
+        trim:true
+        
+        
+    },
+
+    //Imagespic schema
+    gpsImeiPic:
+    {
+   type:String,
+   trim:true,
+  required:true
+
+    },
+    vehicleNumberPlate:
+    {
+        type:String,
+        trim:true,
+       required:true
+    },
+    driverPic:
+    {
+        type:String,
+        trim:true,
+       required:true
+    },
+    sealingImages:
+    {
+        type:String,
+        trim:true,
+       required:true
+    },
+    vehicleImages:
+    {
+        type:String,
+        trim:true,
+       required:true
+    }
 
 },{timestamps:true})
 module.exports=new mongoose.model("createChallanDetails",CreateChallan);

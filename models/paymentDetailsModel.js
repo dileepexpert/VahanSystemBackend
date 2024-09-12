@@ -4,46 +4,57 @@ const payment=new mongoose.Schema({
 
 TDS:{
 type:Number
+
 },
 
 Advanced:{
-type:Number
+    type:Number
+   
 }, 
 
 Fuel:{
     type:Number
+   
 }, 
 
-Pumpname:{
+PumpName:{
     type:String
+
 },
 
-Fuelinliter:{
+FuelInLiter:{
     type:Number
+    
 }, 
 
-Fuelinprice:{
+FuelInPrice:{
     type:Number
+    
 } ,
 
-FuelstationschallanNumber:{
+FuelStationsChallanNumber:{
     type:Number
+    
 },
 
-Sealingdate:{
+SealingDate:{
     type:Number
+   
 },
 
-Sealingpoint:{
+SealingPoint:{
     type:String
+   
 },
 
-Sealingcolour:{
-    type:String
+SealingColour:{
+   type:String
+
 }, 
 
-Totalsealquantity:{
-type:Number
+TotalsealQuantity:{
+    type:Number
+    
 }
 },{timestamps:true})
 
